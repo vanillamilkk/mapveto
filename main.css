@@ -1,0 +1,77 @@
+html, body { height: 100%; margin: 0; font-family: colabReg; }
+
+@font-face {
+	font-family: colabReg;
+	src: url(../fonts/ColabReg.otf);
+}
+
+#wrapper {
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+#header {
+	flex: 0 1 auto;
+	width: auto;
+	border-bottom: .2em solid grey;
+	padding: .5em;
+}
+#votePanels {
+	display: flex;
+	flex-flow: column;
+	flex: 1 1 auto;
+	text-align: center;
+	padding-top: 1em;
+	align-items: center;
+}
+
+#teamOneSelect, #mapSelect, #teamTwoSelect {
+	flex: 1 1 33%;
+}
+
+#teamOneSelect {
+	text-align: right;
+}
+
+#mapSelectTable {
+	width: 100%;
+	padding: 2em;
+	border-collapse: separate;
+	border-spacing: 0 1em;
+}
+
+#mapSelectTable td {
+	width: 33%;
+	padding: 1em;
+}
+
+#teamOneP, #teamTwoP {
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.mapT {
+	cursor: pointer;
+	text-align: center;
+	background-color: lightblue;
+	border-radius: 2em;
+}
+
+.teamOne {
+	text-align: right;
+}
+
+.picked {
+	text-align: center;
+	background-color: green;
+	border-radius: 2em;
+}
+
+.banned {
+	text-align: center;
+	background-color: red;
+	border-radius: 2em;
+}

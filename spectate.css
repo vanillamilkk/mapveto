@@ -1,0 +1,101 @@
+html, body { height: 100%; margin: 0; font-family: colabReg; }
+
+h1 { text-align: center; }
+
+table { width: 100%; }
+
+td { vertical-align: bottom; text-align: center; width: 209px; height: 117px; border: 2px solid black; border-radius: .5em; }
+
+#maps td { font-size: 1.2em; color: white; }
+
+#teams td { border: none; height: auto; }
+
+@font-face {
+	font-family: colabReg;
+	src: url(../fonts/ColabReg.otf);
+}
+
+#wrapper {
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+#header {
+	flex: 0 1 auto;
+	width: auto;
+	border-bottom: .2em solid grey;
+	padding: .5em;
+}
+
+#bank {
+	background-image: url('bank.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#chalet {
+	background-image: url('chalet.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#border {
+	background-image: url('border.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#clubhouse {
+	background-image: url('clubhouse.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#coastline {
+	background-image: url('coastline.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#kafe {
+	background-image: url('kafe.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#oregon {
+	background-image: url('oregon.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#oregon {
+	background-image: url('oregon.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#skyscraper {
+	background-image: url('skyscraper.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#consulate {
+	background-image: url('consulate.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.picked {
+	text-align: center;
+	background-color: green;
+	background-blend-mode: multiply;
+}
+
+.banned {
+	text-align: center;
+	background-color: red;
+	background-blend-mode: multiply;
+}
