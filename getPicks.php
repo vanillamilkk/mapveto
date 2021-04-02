@@ -21,16 +21,14 @@
 		if(empty($tmap)) {
 			break;
 		}
-		if($matchType=="BO3" || $matchType=="BO5") {
-			if(strstr($key, "Pick")) {
-				$pickType = "picked";
-			} else if($key=="BanFive" || $key=="BanSix") {
+		if($matchType=="BO3") {
+			if($key=="BanThree" || $key=="BanFour" || $key=="BanPickOne") {
 				$pickType="picked";
 			} else {
 				$pickType = "banned";
 			}
 		} else {
-			if($key=="BanPickThree") {
+			if($key=="BanPickOne") {
 				$pickType = "picked";
 			} else {
 				$pickType = "banned";
@@ -65,21 +63,19 @@
 			if(empty($tmap)) {
 				break;
 			}
-			if($matchType=="BO3" || $matchType=="BO5") {
-				if(strstr($key, "Pick")) {
-					$pickType = "picked";
-				} else if($key=="BanFive" || $key=="BanSix") {
-					$pickType="picked";
-				} else {
-					$pickType = "banned";
-				}
+		if($matchType=="BO3") {
+			if($key=="BanThree" || $key=="BanFour" || $key=="BanPickOne") {
+				$pickType="picked";
 			} else {
-				if($key=="BanPickThree") {
-					$pickType = "picked";
-				} else {
-					$pickType = "banned";
-				}
+				$pickType = "banned";
 			}
+		} else {
+			if($key=="BanPickOne") {
+				$pickType = "picked";
+			} else {
+				$pickType = "banned";
+			}
+		}
 		}
 		$bootbox = 
 			'if(bootboxB) {
@@ -106,19 +102,37 @@
 			echo 'canPick = true;';
 		}
 		echo 'console.log("'.$pickType.'");';
-		if($pickType == "banned") {
-			if($changeTeam['TeamOneID'] == $changeTeam['PickID']) {
-				echo '$("#curPick").html("Pick: '.$changeTeam['TeamOne'].'");';
-			}
-			if($changeTeam['TeamTwoID'] == $changeTeam['PickID']) {
-				echo '$("#curPick").html("Pick: '.$changeTeam['TeamTwo'].'");';
+        if($matchType=="BO3") {
+			if($key=="BanThree" || $key=="BanFour" || $key=="BanPickOne") {
+                if($changeTeam['TeamOneID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Pick: '.$changeTeam['TeamOne'].'");';
+                }
+                if($changeTeam['TeamTwoID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Pick: '.$changeTeam['TeamTwo'].'");';
+                }
+			} else {
+                if($changeTeam['TeamOneID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Ban: '.$changeTeam['TeamOne'].'");';
+                }
+                if($changeTeam['TeamTwoID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Ban: '.$changeTeam['TeamTwo'].'");';
+                }
 			}
 		} else {
-			if($changeTeam['TeamOneID'] == $changeTeam['PickID']) {
-				echo '$("#curPick").html("Pick: '.$changeTeam['TeamOne'].'");';
-			}
-			if($changeTeam['TeamTwoID'] == $changeTeam['PickID']) {
-				echo '$("#curPick").html("Pick: '.$changeTeam['TeamTwo'].'");';
+			if($key=="BanPickOne") {
+				if($changeTeam['TeamOneID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Pick: '.$changeTeam['TeamOne'].'");';
+                }
+                if($changeTeam['TeamTwoID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Pick: '.$changeTeam['TeamTwo'].'");';
+                }
+			} else {
+				if($changeTeam['TeamOneID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Ban: '.$changeTeam['TeamOne'].'");';
+                }
+                if($changeTeam['TeamTwoID'] == $changeTeam['PickID']) {
+                    echo '$("#curPick").html("Ban: '.$changeTeam['TeamTwo'].'");';
+                }
 			}
 		}
 	}
