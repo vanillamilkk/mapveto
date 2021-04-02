@@ -1,14 +1,21 @@
-html, body { height: 100%; margin: 0; font-family: colabReg; }
+html, body {    
+    height: 100%;
+    margin: 0;
+    font-family: colabReg;
+    background-color: #ff00ff;
+    color: #ffff; }
 
 h1 { text-align: center; }
 
-table { width: 100%; }
+table { height: 60%; width: 80%; margin: auto;;}
 
-td { vertical-align: bottom; text-align: center; width: 209px; height: 117px; border: 2px solid black; border-radius: .5em; }
+td { text-align: center; width: 240px; height: 135px; border: 2px solid black; border-radius: .5em; }
 
-#maps td { font-size: 1.2em; color: white; }
+#maps td { font-size: 3em; color: white; }
 
-#teams td { border: none; height: auto; }
+#teams td { border: none; height: auto; font-size: 2em; }
+
+#none { border: none; height: auto; }
 
 @font-face {
 	font-family: colabReg;
@@ -28,74 +35,63 @@ td { vertical-align: bottom; text-align: center; width: 209px; height: 117px; bo
 	padding: .5em;
 }
 
-#bank {
-	background-image: url('bank.png');
+#mirage {
+	background-image: url('mirage.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-position: center;
 }
 
-#chalet {
-	background-image: url('chalet.png');
+#inferno {
+	background-image: url('inferno.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-position: center;
 }
 
-#border {
-	background-image: url('border.png');
+#overpass {
+	background-image: url('overpass.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-position: center;
 }
 
-#clubhouse {
-	background-image: url('clubhouse.png');
+#dust2 {
+	background-image: url('dust2.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-position: center;
 }
 
-#coastline {
-	background-image: url('coastline.png');
+#train {
+	background-image: url('train.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-position: center;
 }
 
-#kafe {
-	background-image: url('kafe.png');
+#nuke {
+	background-image: url('nuke.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-position: center;
 }
 
-#oregon {
-	background-image: url('oregon.png');
+#vertigo {
+	background-image: url('vertigo.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-}
-
-#oregon {
-	background-image: url('oregon.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-#skyscraper {
-	background-image: url('skyscraper.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-#consulate {
-	background-image: url('consulate.png');
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-position: center;
 }
 
 .picked {
 	text-align: center;
-	background-color: green;
+	background-color: rgba(0,255,0,0.8);
 	background-blend-mode: multiply;
 }
 
 .banned {
 	text-align: center;
-	background-color: red;
+	background-color: rgba(255,0,0,0.8);
 	background-blend-mode: multiply;
 }
