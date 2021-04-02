@@ -4,7 +4,7 @@
 ?>
 <html !doctype="html">
 	<head>
-		<title>Maciel Solutions MapVote System</title>
+		<title>KCMLCUP - Map Veto</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script>
@@ -47,14 +47,16 @@
 				if(!empty($teamID)) {
 					if($teamID == $teamInfo['TeamOneID']) {
 						if($teamInfo['TeamOneConnected'] == 1) {
-							die("Team already connected! Use the <a href='http://crazyman.tk/mapveto/?id=".$id."'>spectator link</a> to monitor picks");
+                            echo '<script>alert("Link Invalid harap hubungi Admin");</script>';
+                            die("Team already connected!");
 						}
 						//$updateTeam = $thisCon->query('UPDATE `Matches` SET `TeamOneConnected`="1" WHERE `MatchID`="'.$id.'"');
 						$canPick = true;
 						$scriptPick = true;
 					} elseif($teamID == $teamInfo['TeamTwoID']) {
 						if($teamInfo['TeamTwoConnected'] == 1) {
-							die("Team already connected! Use the spectator link to monitor picks: http://crazyman.tk/mapveto/?id=".$id);
+							echo '<script>alert("Link Invalid harap hubungi Admin");</script>';
+							die("Team already connected!");
 						}
 						//$updateTeam = $thisCon->query('UPDATE `Matches` SET `TeamTwoConnected`="1" WHERE `MatchID`="'.$id.'"');
 						$canPick = true;
@@ -75,22 +77,20 @@
 			?>
 			<div id="header">
 				Match ID: <?php echo $id; ?><br />
-				<p id="teamOneP">Home Team: <?php echo $matchInfo['TeamOne']; ?></p>
-				<p id="teamTwoP">Away Team: <?php echo $matchInfo['TeamTwo']; ?></p>
+				<p id="teamOneP">Team A: <?php echo $matchInfo['TeamOne']; ?></p>
+				<p id="teamTwoP">Team B: <?php echo $matchInfo['TeamTwo']; ?></p>
 			</div>
 			<div id="votePanels">
-				<h2>Current <span id="curPick">Ban: <?php echo $matchInfo['TeamOne']; ?></span></h3>
+				<h2>Current <span id="curPick">Veto: <?php echo $matchInfo['TeamOne']; ?></span></h3>
 				<table id="mapSelectTable">
 					<tr><th><?php echo $matchInfo['TeamOne']; ?></th><th></th><th><?php echo $matchInfo['TeamTwo']; ?></th></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Bank</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Border</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Chalet</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Club House</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Coastline</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Consulate</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Kafe Dostoyevsky</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Oregon</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Skyscraper</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Mirage</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Inferno</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Overpass</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Dust 2</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Train</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Nuke</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Vertigo</td><td class="teamTwo"></td></tr>
 				</table>
 			</div>
 		</div>
