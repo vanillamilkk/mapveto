@@ -31,21 +31,19 @@
 			break;
 		}
 	}
-	if($matchType=="BO3" || $matchType=="BO5") {
-		if(strstr($key, "Pick")) {
-			$pickType = "picked";
-		} else if($key=="BanFive" || $key=="BanSix") {
-			$pickType="picked";
-		} else {
-			$pickType = "banned";
-		}
-	} else {
-		if($key=="BanPickThree") {
-			$pickType = "picked";
-		} else {
-			$pickType = "banned";
-		}
-	}
+    if($matchType=="BO3") {
+        if($key=="BanThree" || $key=="BanFour" || $key=="BanPickOne") {
+            $pickType="picked";
+        } else {
+            $pickType = "banned";
+        }
+    } else {
+        if($key=="BanPickOne") {
+            $pickType = "picked";
+        } else {
+            $pickType = "banned";
+        }
+    }
 	$mapCon->query(
 		"UPDATE `Matches` SET ".$thisFill."='$map' WHERE `MatchID`='$matchID'"
 	);
@@ -55,17 +53,15 @@
 		WHERE MatchID = '$matchID'"
 	);
 	$checkMap = $checkMap->fetch_assoc();
-	if($thisFill == "BanPickTwo") {
+	if($thisFill == "BanSix") {
 		$mapPool = [
-			"Bank",
-			"Border",
-			"Chalet",
-			"Club House",
-			"Coastline",
-			"Consulate",
-			"Kafe Dostoyevsky",
-			"Oregon",
-			"Skyscraper"
+			"Mirage",
+			"Inferno",
+			"Overpass",
+			"Dust 2",
+			"Train",
+			"Nuke",
+			"Vertigo",
 		];
 		foreach($mapPool as $findThisMap) {
 			if(!in_array($findThisMap, $checkMap)) {
@@ -73,7 +69,7 @@
 			}
 		}
 		$mapCon->query(
-			"UPDATE `Matches` SET `BanPickThree`='$defaultMap' WHERE `MatchID`='$matchID'"
+			"UPDATE `Matches` SET `BanPickOne`='$defaultMap' WHERE `MatchID`='$matchID'"
 		);
 	}
 	$mapCon->close();
