@@ -8,7 +8,7 @@
 		$theirPass = $_POST['password'];
 		$properPass = "se^G2uArPyQ2NWhs";
 		
-		if(/*$theirPass == $properPass ||*/ $theirPass == "tempCCSPass" /*|| $theirPass == "wildRedFlamingo"*/) {
+		if(/*$theirPass == $properPass ||*/ $theirPass == "xxxxxxx" /*|| $theirPass == "wildRedFlamingo"*/) {
 			if(isset($_POST['teamOneName']) && isset($_POST['teamTwoName'])) {
 				$teamCon = createDBConn();
 				$alreadySet = true;
@@ -23,7 +23,7 @@
 				if($teamCon->query(
 					"INSERT INTO Matches (AdminName, MatchID, MatchType, PickID, TeamOne, TeamOneID, TeamTwo, TeamTwoID)
 					VALUES('$adminName', '$matchID', '$matchType', '$teamOneID', '$teamOne', '$teamOneID', '$teamTwo', '$teamTwoID')") === TRUE) {
-					$linkbase = "http://crazyman.tk/mapveto/?id=".$matchID;
+					$linkbase = "https://kcml.my.id/kcmlcup/mapveto/?id=".$matchID;
 					$teamOneLink = $linkbase."_".$teamOneID;
 					$teamTwoLink = $linkbase."_".$teamTwoID;
 				} else {
@@ -35,7 +35,7 @@
 ?>
 <html !doctype="html">
 	<head>
-		<title>Maciel Solutions MapVote Admin</title>
+		<title>KCMLcup - Admin</title>
 	</head>
 	<body>
 		<?php
@@ -48,17 +48,16 @@
 				<input type="text" placeholder="Away Team" name="teamTwoName" required>
 				<select name="matchType" required>
 					<option value="BO3">Best of 3</option>
-					<option value="BO5">Best of 5</option>
 					<option value="BO1">Best of 1</option>
 				</select>
 				<input type="Submit">
 			</form>
 		<?php
 		} else {
-			echo "Give this link to ".$teamOne.": ".$teamOneLink."<br />";
-			echo "Give this link to ".$teamTwo.": ".$teamTwoLink."<br />";
-			echo "This link can be used for watching the ban process: ".$linkbase."<br />";
-			echo "This is the link should be given to the broadcaster before the teams get their links: http://crazyman.tk/mapveto/viewveto.php?id=".$matchID;
+			echo "LINK untuk Team ".$teamOne.": ".$teamOneLink."<br />";
+			echo "LINK untuk Team ".$teamTwo.": ".$teamTwoLink."<br />";
+			echo "LINK untuk caster/spectator: ".$linkbase."<br />";
+			echo "LINK server: https://kcml.my.id/kcmlcup/mapveto/viewveto.php?id=".$matchID;
 		}
 		?>
 	</body>
