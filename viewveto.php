@@ -3,7 +3,7 @@
 ?>
 <html !doctype="html">
 	<head>
-		<title>CCS MapVote System</title>
+		<title>KCMLCUP - Map Veto</title>
 		<link rel="stylesheet" type="text/css" href="spectate.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
@@ -31,29 +31,48 @@
 				$matchInfo = $thisCon->query('SELECT `TeamOne`, `TeamTwo` FROM `Matches` WHERE `MatchID`="'.$id.'"');
 				$matchInfo = $matchInfo->fetch_assoc();
 			?>
-			<h1><?php echo $matchInfo['TeamOne']." vs ".$matchInfo['TeamTwo']; ?></h1>
 			<table>
 				<tr id="maps">
 					<td id="one"></td>
-					<td id="two"></td>
 					<td id="three"></td>
-					<td id="four"></td>
 					<td id="five"></td>
-					<td id="six"></td>
-					<td id="seven"></td>
-					<td id="eight"></td>
-					<td id="nine"></td>
-				</tr>
-				<tr id="teams">
-					<?php
-						for($i=0; $i < 8; $i++) {
-							if(($i % 2) == 0) {
+                </tr>
+                <tr id="none">
+                    <td id="none">⠀</td>
+                </tr>
+                <tr id="teams">
+                <?php
+						for($i=0; $i < 3; $i++) {
 								echo '<td>'.$matchInfo['TeamOne'].'</td>';
-							} else {
+                        }?>
+                </tr>
+                <tr id="none">
+                    <td id="none">⠀</td>
+                </tr>
+                <tr id="maps">
+                    <td id="none"></td>
+                    <td id="seven"></td>
+                    <td id="none"></td>
+                </tr>
+                <tr id="none">
+                    <td id="none">⠀</td>
+                </tr>
+                <tr id="none">
+                    <td id="none">⠀</td>
+                </tr>
+                <tr id="maps">
+					<td id="two"></td>
+					<td id="four"></td>
+					<td id="six"></td>
+				</tr>
+				<tr id="none">
+                    <td id="none">⠀</td>
+                </tr>
+				<tr id="teams">
+                    <?php
+						for($i=0; $i < 3; $i++) {
 								echo '<td>'.$matchInfo['TeamTwo'].'</td>';
-							}
-						}
-					?>
+                        }?>
 				</tr>
 			</table>
 		</div>
