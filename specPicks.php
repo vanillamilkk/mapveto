@@ -17,25 +17,20 @@
 		if(empty($tmap)) {
 			break;
 		}
-		if($tmap == "Club House") {
-			$tmap = "clubhouse";
-			$mapname = "Club House";
-		} else if($tmap == "Kafe Dostoyevsky") {
-			$tmap = "kafe";
-			$mapname = "Kafe Dostoyevsky";
-		} else {
-			$mapname = $tmap;
-		}
-		if($matchType=="BO3" || $matchType=="BO5") {
-			if(strstr($key, "Pick")) {
-				$pickType = "picked";
-			} else if($key=="BanFive" || $key=="BanSix") {
+        if($tmap == "Dust 2") {
+			$tmap = "dust2";
+			$mapname = "Dust 2";
+        } else {
+        $mapname = $tmap;
+        }
+		if($matchType=="BO3") {
+			if($key=="BanThree" || $key=="BanFour" || $key=="BanPickOne") {
 				$pickType="picked";
 			} else {
 				$pickType = "banned";
 			}
 		} else {
-			if($key=="BanPickThree") {
+			if($key=="BanPickOne") {
 				$pickType = "picked";
 			} else {
 				$pickType = "banned";
@@ -73,16 +68,6 @@
 		}
 		if($key=="BanPickOne") {
 			echo '$("#seven").attr("id", "'.$tmap.'");';
-			echo '$("#'.$tmap.'").addClass("'.$pickType.'");';
-			echo '$("#'.$tmap.'").html("'.$mapname.'");';
-		}
-		if($key=="BanPickTwo") {
-			echo '$("#eight").attr("id", "'.$tmap.'");';
-			echo '$("#'.$tmap.'").addClass("'.$pickType.'");';
-			echo '$("#'.$tmap.'").html("'.$mapname.'");';
-		}
-		if($key=="BanPickThree") {
-			echo '$("#nine").attr("id", "'.$tmap.'");';
 			echo '$("#'.$tmap.'").addClass("'.$pickType.'");';
 			echo '$("#'.$tmap.'").html("'.$mapname.'");';
 		}
