@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: colabReg;
-    background-color: #ff00ff;
+    background-color: rgba(0,0,0,0);
     color: #ffff; }
 
 h1 { text-align: center; }
