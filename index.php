@@ -6,7 +6,7 @@
 	<head>
 		<title>KCMLCUP - Map Veto</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="main.css" />
+		<link rel="stylesheet" type="text/css" href="main.css"/>
 		<script>
 			teamID = 0;
 			$(function(){ updateFeed(); });
@@ -88,7 +88,7 @@
 					<tr><td class="teamOne"></td><td class="mapT">Inferno</td><td class="teamTwo"></td></tr>
 					<tr><td class="teamOne"></td><td class="mapT">Overpass</td><td class="teamTwo"></td></tr>
 					<tr><td class="teamOne"></td><td class="mapT">Dust 2</td><td class="teamTwo"></td></tr>
-					<tr><td class="teamOne"></td><td class="mapT">Train</td><td class="teamTwo"></td></tr>
+					<tr><td class="teamOne"></td><td class="mapT">Ancient</td><td class="teamTwo"></td></tr>
 					<tr><td class="teamOne"></td><td class="mapT">Nuke</td><td class="teamTwo"></td></tr>
 					<tr><td class="teamOne"></td><td class="mapT">Vertigo</td><td class="teamTwo"></td></tr>
 				</table>

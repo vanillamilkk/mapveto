@@ -63,8 +63,8 @@ td { text-align: center; width: 240px; height: 135px; border: 2px solid black; b
     background-position: center;
 }
 
-#train {
-	background-image: url('train.png');
+#ancient {
+	background-image: url('ancient.png');
 	background-repeat: no-repeat;
 	background-size: cover;
     background-position: center;
@@ -86,8 +86,8 @@ td { text-align: center; width: 240px; height: 135px; border: 2px solid black; b
 
 .picked {
 	text-align: center;
-	background-color: rgba(0,255,0,0.8);
-	background-blend-mode: multiply;
+	background-color: rgba(0,255,0,0.5);
+    background-blend-mode: multiply;
 }
 
 .banned {

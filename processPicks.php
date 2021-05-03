@@ -59,7 +59,7 @@
 			"Inferno",
 			"Overpass",
 			"Dust 2",
-			"Train",
+			"Ancient",
 			"Nuke",
 			"Vertigo",
 		];
