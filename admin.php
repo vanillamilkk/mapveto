@@ -1,24 +1,25 @@
 <?php
 	error_reporting(E_ALL);
 	include 'dbConn.php';
+	include 'discord2.php';
 
 	$alreadySet = false;
 	
 	if(isset($_POST['password'])) {
 		$theirPass = $_POST['password'];
-		$properPass = "se^G2uArPyQ2NWhs";
+		$properPass = "password";
 		
-		if(/*$theirPass == $properPass ||*/ $theirPass == "xxxxxxx" /*|| $theirPass == "wildRedFlamingo"*/) {
+		if($theirPass == $properPass || $theirPass == "1234") {
 			if(isset($_POST['teamOneName']) && isset($_POST['teamTwoName'])) {
 				$teamCon = createDBConn();
 				$alreadySet = true;
 				$teamOne = mysqli_real_escape_string($teamCon, $_POST['teamOneName']);
 				$teamTwo = mysqli_real_escape_string($teamCon, $_POST['teamTwoName']);
-				$matchID = uniqid();
+				$matchID = hash('crc32', $teamOne . $teamTwo . uniqid());
 				$matchType = mysqli_real_escape_string($teamCon, $_POST['matchType']);
 				$adminName = mysqli_real_escape_string($teamCon, $_POST['adminName']);
-				$teamOneID = uniqid();
-				$teamTwoID = uniqid();
+				$teamOneID = hash('crc32', $teamOne . uniqid());
+				$teamTwoID = hash('crc32', $teamTwo . uniqid());
 				
 				if($teamCon->query(
 					"INSERT INTO Matches (AdminName, MatchID, MatchType, PickID, TeamOne, TeamOneID, TeamTwo, TeamTwoID)
@@ -26,6 +27,7 @@
 					$linkbase = "https://kcml.my.id/kcmlcup/mapveto/?id=".$matchID;
 					$teamOneLink = $linkbase."_".$teamOneID;
 					$teamTwoLink = $linkbase."_".$teamTwoID;
+					sendDiscord();
 				} else {
 					echo $teamCon->error;
 				}

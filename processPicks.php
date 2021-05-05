@@ -1,5 +1,6 @@
 <?php
 	include 'dbConn.php';
+	include 'discord.php';
 	$mapCon = createDBConn();
 	$map = $_POST['map'];
 	$matchID = $_POST['matchID'];
@@ -17,6 +18,8 @@
 	);
 	$checkMatchType = $checkMatchType->fetch_assoc();
 	$matchType = $checkMatchType['MatchType'];
+	$matchInfo = $mapCon->query("SELECT `TeamOne`, `TeamTwo` FROM `Matches` WHERE `MatchID`='$matchID'");
+    $matchInfo = $matchInfo->fetch_assoc();
 	$changeTeam = $changeTeam->fetch_assoc();
 	if($changeTeam['PickID'] == $changeTeam['TeamOneID']) {
 		$mapCon->query("UPDATE `Matches` SET `PickID`='".$changeTeam['TeamTwoID']."' WHERE MatchID = '$matchID'");
@@ -71,6 +74,7 @@
 		$mapCon->query(
 			"UPDATE `Matches` SET `BanPickOne`='$defaultMap' WHERE `MatchID`='$matchID'"
 		);
+		sendDiscord();
 	}
 	$mapCon->close();
 ?>
