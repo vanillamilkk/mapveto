@@ -15,11 +15,11 @@
 				$alreadySet = true;
 				$teamOne = mysqli_real_escape_string($teamCon, $_POST['teamOneName']);
 				$teamTwo = mysqli_real_escape_string($teamCon, $_POST['teamTwoName']);
-				$matchID = hash('crc32', $teamOne . $teamTwo . uniqid());
+				$matchID = uniqid();
 				$matchType = mysqli_real_escape_string($teamCon, $_POST['matchType']);
 				$adminName = mysqli_real_escape_string($teamCon, $_POST['adminName']);
-				$teamOneID = hash('crc32', $teamOne . uniqid());
-				$teamTwoID = hash('crc32', $teamTwo . uniqid());
+				$teamOneID = uniqid();
+				$teamTwoID = uniqid();
 				
 				if($teamCon->query(
 					"INSERT INTO Matches (AdminName, MatchID, MatchType, PickID, TeamOne, TeamOneID, TeamTwo, TeamTwoID)
